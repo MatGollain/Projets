@@ -10,7 +10,7 @@ namespace Projet
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Chouquettes");
+            Console.WriteLine("Chouquette");
             Console.ReadKey();
         }
     }
