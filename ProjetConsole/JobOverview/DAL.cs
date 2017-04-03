@@ -7,11 +7,41 @@ using System.IO;
 
 namespace JobOverview
 {
+    [Flags]
+    public enum Activités
+    {
+        Aucun = 0,
+        DBE = 1,
+        ARF = 2,
+        ANF = 4,
+        DES = 8,
+        INF = 16,
+        ART = 32,
+        ANT = 64,
+        DEV = 128,
+        RPT = 256,
+        TES = 512,
+        GDP = 1024,
+    }
+    public enum Métiers { ANA, CDP, DEV, DES, TES }
+
     class DAL
     {
-        public void ChargerFichier()
+        #region Propriétés
+        public List<Taches> Data { get; }
+        #endregion
+
+        #region Constructeurs
+        public DAL()
         {
-            string chemin = @"..\..\DonnéesMétéoParis.txt";
+            var b = new List<Taches>();
+        }
+        #endregion
+
+        #region Méthodes Publiques
+        public void ChargeFichier()
+        {
+            string chemin = @"..\..\ProjetJobOverview.txt";
 
             int cpt = 0;
             using (StreamReader str = new StreamReader(chemin))
@@ -21,27 +51,33 @@ namespace JobOverview
                 while ((ligne = str.ReadLine()) != null)
                 {
                     cpt++;
-                    if (cpt == 1) continue; // On n'analyse pas la première ligne car elle contient les en-têtes
+                    if (cpt == 1) continue; // On ne charge pas les entêtes
 
                     var tab = ligne.Split('\t');
                     try
                     {
-                        var donnéesMois = new DonnéesMois
+                        var taches = new Taches
                         {
-                            Mois = DateTime.Parse(tab[0]),
-                            TMin = double.Parse(tab[1]),
-                            TMax = double.Parse(tab[2]),
-                            Précipitations = double.Parse(tab[3]),
-                            Ensoleillement = double.Parse(tab[4])
+                            NumTache = int.Parse(tab[0]),
+                            Version = double.Parse(tab[1]),
+                            LibTache = (tab[4]),
+                            DateDebutTravail = DateTime.Parse(tab[5]),
+                            DuréeTravailPrévu = double.Parse(tab[6]),
+                            DuréeTravailRéalisé = double.Parse(tab[7]),
+                            DuréeTravailRestant = double.Parse(tab[8]),
                         };
 
-                        // Ajout des données du mois à la liste
-                        Data.Add(donnéesMois);
+                        Data.Add(taches);// Ajout des données à la liste
                     }
                     catch (FormatException)
                     {
-                        // On ignore simplement la ligne
-                        Console.WriteLine("Erreur de format à la ligne suivante :\r\n{0}", ligne);
+
+                        Console.WriteLine("Erreur de format à la ligne suivante :\r\n{0}", ligne);// On ignore la ligne
                     }
+
                 }
+            }
+        }
+        #endregion
+    }
 }
