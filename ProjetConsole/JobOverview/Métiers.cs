@@ -23,16 +23,41 @@ namespace JobOverview
         GDP = 1024,
     }
 
-    public enum CodeMétier {ANA,CDO,DEV,DES,TES }
+    public enum CodeMétiers {ANA,CDP,DEV,DES,TES }
 
         public class Métiers
     {
-        public Dictionary<CodeMétier, string> Métier { get; set; }
+        public Dictionary<CodeMétiers, string> Métier { get; set; }
+
+        public void RemplissageMétier(Dictionary<CodeMétiers, string> métiers)
+        {
+            métiers.Add(CodeMétiers.ANA, "Analyste");
+            métiers.Add(CodeMétiers.CDP, "Chef de projet");
+            métiers.Add(CodeMétiers.DEV, "Développeur");
+            métiers.Add(CodeMétiers.DES, "Designer");
+            métiers.Add(CodeMétiers.TES, "Testeur");
+        }
     }
 
     public class Activités
     {
-        public Dictionary<CodeActivités, string> Métier { get; set; }
+        public Dictionary<CodeActivités, string> Activité { get; set; }
 
+        public void RemplissageActivité(Dictionary<CodeActivités, string> activités)
+        {
+            activités.Add(CodeActivités.DBE, "Définition de besoins");
+            activités.Add(CodeActivités.ARF, "Architecture fonctionnelle");
+            activités.Add(CodeActivités.ANF, "Analyse fonctionnelle");
+            activités.Add(CodeActivités.DES, "Design");
+            activités.Add(CodeActivités.INF, "Infographie");
+            activités.Add(CodeActivités.ART, "Architecture technique");
+            activités.Add(CodeActivités.ANT, "Analyse technique");
+            activités.Add(CodeActivités.DEV, "Développement");
+            activités.Add(CodeActivités.RPT, "Rédaction de plan de test");
+            activités.Add(CodeActivités.TES, "Test");
+            activités.Add(CodeActivités.GDP, "Gestion de projet");
+
+            // activités.Activité(new Dictionary<CodeActivités, string> (CodeActivités.DBE, "Définition de besoins"));
+        }
     }
 }

@@ -41,12 +41,14 @@ namespace JobOverview
                     var taches = new Production
                     {
                         NumTache = int.Parse(tab[0]),
-                        Version = double.Parse(tab[1]),
-                        LibTache = (tab[4]),
+                        Version = tab[1],
+                        CodePersonne = tab[2],                      
+                        ActivitéTache = (CodeActivités)Enum.Parse(typeof(CodeActivités), tab[3]),  
+                        LibTache = tab[4],
                         DateDébutTravail = DateTime.Parse(tab[5]),
-                        DuréeTravailPrévu = double.Parse(tab[6]),
-                        DuréeTravailRéalisé = double.Parse(tab[7]),
-                        DuréeTravailRestant = double.Parse(tab[8]),
+                        DuréeTravailPrévu = int.Parse(tab[6]),
+                        DuréeTravailRéalisé = int.Parse(tab[7]),
+                        DuréeTravailRestant = int.Parse(tab[8]),
                     };
 
                     Data.Add(taches);// Ajout des données à la liste

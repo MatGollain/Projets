@@ -11,7 +11,7 @@ namespace JobOverview
         #region Proriétés
 
         public int NumTache { get; set; }
-        public double DuréeTravailRéalisé { get; set; }
+        public int DuréeTravailRéalisé { get; set; }
         public string LibTache { get; set; }
 
         #endregion
@@ -21,10 +21,12 @@ namespace JobOverview
     {
         #region Propriétés
 
+        public string CodePersonne { get; set; } 
+        public CodeActivités ActivitéTache { get; set; }
         public DateTime DateDébutTravail { get; set; }
-        public double DuréeTravailPrévu { get; set; }
-        public double DuréeTravailRestant { get; set; }
-        public double Version { get; set; }
+        public int DuréeTravailPrévu { get; set; }
+        public int DuréeTravailRestant { get; set; }
+        public string Version { get; set; }
 
         #endregion
     }

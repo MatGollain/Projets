@@ -17,25 +17,21 @@ namespace JobOverview
             var personnes = new List<Personnes>();
             var métiers = new Métiers();
             var activités = new Activités();
+            string codePersonne = "GL";
 
-            métiers.add(new Métiers(CodeMétier.ANA, "Analyste");
-            métiers.add(new Métiers(CodeMétier.CDP, "Chef de projet");
-            métiers.add(new Métiers(CodeMétier.DEV, "Développeur");
-            métiers.add(new Métiers(CodeMétier.DES, "Designer");
-            métiers.add(new Métiers(CodeMétier.TES, "Testeur");
+            personnes.Add(new Personnes("Geneviève", "Leclerq", CodeMétiers.ANA));
+            personnes.Add(new Personnes("Angèle", "Ferrand", CodeMétiers.ANA));
+            personnes.Add(new Personnes("Balthazar", "Normand", CodeMétiers.CDP));
+            personnes.Add(new Personnes("Raymond", "Fisher", CodeMétiers.DEV));
+            personnes.Add(new Personnes("Lucien", "Butler", CodeMétiers.DEV));
+            personnes.Add(new Personnes("Roseline", "Beaumont", CodeMétiers.DEV));
+            personnes.Add(new Personnes("Marguerite", "Weber", CodeMétiers.DES));
+            personnes.Add(new Personnes("Hilaire", "Klein", CodeMétiers.TES));
+            personnes.Add(new Personnes("Nino", "Palmer", CodeMétiers.TES));
 
-
-            activités.add(new Activités(CodeActivités.DBE, "Définition de besoins");
-            activités.add(new Activités(CodeActivités.ARF, "Architecture fonctionnelle");
-            activités.add(new Activités(CodeActivités.ANF, "Analyse fonctionnelle");
-            activités.add(new Activités(CodeActivités.DES, "Design");
-            activités.add(new Activités(CodeActivités.INF, "Infographie");
-            activités.add(new Activités(CodeActivités.ART, "Architecture technique");
-            activités.add(new Activités(CodeActivités.ANT, "Analyse technique");
-            activités.add(new Activités(CodeActivités.DEV, "Développement");
-            activités.add(new Activités(CodeActivités.RPT, "Rédaction de plan de test");
-            activités.add(new Activités(CodeActivités.TES, "Test");
-            activités.add(new Activités(CodeActivités.GDP, "Gestion de projet");
+            Personnes p = new Personnes();         
+            p = Personnes.TrouverNom(personnes, codePersonne);
+            Console.WriteLine("Nom : {0} Prénom : {1}", p.Prénom, p.Nom);
 
 
             Console.ReadKey();

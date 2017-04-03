@@ -11,14 +11,20 @@ namespace JobOverview
     {
 
         #region Propriété
-        public string CodePersonne { get; set; }
-        public string Nom { get; set; }
-        public string Prénom { get; set; }
-        public Métiers Métier { get; private set; }
+        public string CodePersonne { get; }
+        public string Nom { get; }
+        public string Prénom { get; }
+        public CodeMétiers Métier { get; }
         #endregion
         #region Constructeur
 
-        public Personnes(string nom, string prenom, Métiers métier)
+        public Personnes()
+        {
+
+        }
+
+
+        public Personnes(string prenom, string nom, CodeMétiers métier)
         {
             CodePersonne = string.Format("{0}{1}", prenom[0], nom[0]);
             Nom = nom;
@@ -29,20 +35,18 @@ namespace JobOverview
         #endregion
         #region Méthodes publiques
 
-        public void RemplissagePersonne(List<Personnes> personnes)
+        public static Personnes TrouverNom(List<Personnes> data, string codePersonne)
         {
+            //var per = data.Where(p => p.CodePersonne == codePersonne);
 
-            personnes.Add(new Personnes("Genevièvre", "Leclerq", Métiers.ANA));
-            personnes.Add(new Personnes("Angèle", "Ferrand", Métiers.ANA));
-            personnes.Add(new Personnes("Balthazar", "Normand", Métiers.CDP));
-            personnes.Add(new Personnes("Raymond", "Fisher", Métiers.DEV));
-            personnes.Add(new Personnes("Lucien", "Butler", Métiers.DEV));
-            personnes.Add(new Personnes("Roseline", "Beaumont", Métiers.DEV));
-            personnes.Add(new Personnes("Marguerite", "Weber", Métiers.DES));
-            personnes.Add(new Personnes("Hilaire", "Klein", Métiers.TES));
-            personnes.Add(new Personnes("Nino", "Palmer", Métiers.TES));
-
+            foreach (var p in data)
+            {
+                if (p.CodePersonne == codePersonne)
+                    return (new Personnes(p.Prénom,p.Nom,p.Métier));
+            }
+            return new Personnes();
 
         }
+        #endregion
     }
 }
