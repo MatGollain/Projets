@@ -67,13 +67,11 @@ namespace JobOverview
                     };
 
                     Data.Add(taches);// Ajout des données à la liste
-
-
-
-
+                                        
                 }
             }
         }
         #endregion
     }
+    
 }
