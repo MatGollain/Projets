@@ -7,23 +7,6 @@ using System.IO;
 
 namespace JobOverview
 {
-    [Flags]
-    public enum Activités
-    {
-        Aucun = 0,
-        DBE = 1,
-        ARF = 2,
-        ANF = 4,
-        DES = 8,
-        INF = 16,
-        ART = 32,
-        ANT = 64,
-        DEV = 128,
-        RPT = 256,
-        TES = 512,
-        GDP = 1024,
-    }
-    public enum Métiers { ANA, CDP, DEV, DES, TES }
 
     class DAL
     {
@@ -34,7 +17,7 @@ namespace JobOverview
         #region Constructeurs
         public DAL()
         {
-            var b = new List<Taches>();
+            Data = new List<Taches>();
         }
         #endregion
 

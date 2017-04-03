@@ -9,6 +9,11 @@ namespace JobOverview
     class Results
     {
 
+
+        public void CalculerTravailRéalisé (List<Taches> p)
+        {
+
+        }
         // méthodes de calcules / affichage? 
         /*
         CalculerTempsTotal

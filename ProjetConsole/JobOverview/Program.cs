@@ -10,9 +10,6 @@ namespace JobOverview
     {
         static void Main(string[] args)
         {
-            var a1 = new =Production);
-            a1.ChargerFichier();// appele  charger fichier et charge les données
-
 
             Console.ReadKey();
         }
