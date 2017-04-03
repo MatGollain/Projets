@@ -37,26 +37,22 @@ namespace JobOverview
                     if (cpt == 1) continue; // On ne charge pas les entêtes
 
                     var tab = ligne.Split('\t');
-                    try
-                    {
-                        var taches = new Production
-                        {
-                            NumTache = int.Parse(tab[0]),
-                            Version = double.Parse(tab[1]),
-                            LibTache = (tab[4]),
-                            DateDébutTravail = DateTime.Parse(tab[5]),
-                            DuréeTravailPrévu = double.Parse(tab[6]),
-                            DuréeTravailRéalisé = double.Parse(tab[7]),
-                            DuréeTravailRestant = double.Parse(tab[8]),
-                        };
 
-                        Data.Add(taches);// Ajout des données à la liste
-                    }
-                    catch (FormatException)
+                    var taches = new Production
                     {
+                        NumTache = int.Parse(tab[0]),
+                        Version = double.Parse(tab[1]),
+                        LibTache = (tab[4]),
+                        DateDébutTravail = DateTime.Parse(tab[5]),
+                        DuréeTravailPrévu = double.Parse(tab[6]),
+                        DuréeTravailRéalisé = double.Parse(tab[7]),
+                        DuréeTravailRestant = double.Parse(tab[8]),
+                    };
 
-                        Console.WriteLine("Erreur de format à la ligne suivante :\r\n{0}", ligne);// On ignore la ligne
-                    }
+                    Data.Add(taches);// Ajout des données à la liste
+
+
+
 
                 }
             }
