@@ -8,7 +8,7 @@ namespace JobOverview
 {
     public class Taches
     {
-        #region Proriété
+        #region Proriétés
 
         public int NumTache { get; set; }
         public double DuréeTravailRéalisé { get; set; }
@@ -19,7 +19,7 @@ namespace JobOverview
 
     public class Production : Taches
     {
-        #region Propriété
+        #region Propriétés
 
         public DateTime DateDébutTravail { get; set; }
         public double DuréeTravailPrévu { get; set; }
@@ -27,6 +27,10 @@ namespace JobOverview
         public double Version { get; set; }
 
         #endregion
+    }
+    public class Annexes : Taches
+    {
+
     }
 
 }
