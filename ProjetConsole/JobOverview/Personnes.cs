@@ -11,11 +11,11 @@ namespace JobOverview
     {
         Dictionary<Métiers, Activités> _métier;
 
+        #region Propriété
         public string CodePersonne { get; set; }
         public string Nom { get; set; }
         public string Prénom { get; set; }
         public Métiers Métier { get; private set; }
-
         #endregion
 
     }

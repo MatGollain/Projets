@@ -56,12 +56,12 @@ namespace JobOverview
                     var tab = ligne.Split('\t');
                     try
                     {
-                        var taches = new Taches
+                        var taches = new Production
                         {
                             NumTache = int.Parse(tab[0]),
                             Version = double.Parse(tab[1]),
                             LibTache = (tab[4]),
-                            DateDebutTravail = DateTime.Parse(tab[5]),
+                            DateDébutTravail = DateTime.Parse(tab[5]),
                             DuréeTravailPrévu = double.Parse(tab[6]),
                             DuréeTravailRéalisé = double.Parse(tab[7]),
                             DuréeTravailRestant = double.Parse(tab[8]),
