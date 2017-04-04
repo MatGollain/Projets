@@ -17,6 +17,10 @@ namespace JobOverview
         #endregion
 
         #region Constructeurs
+        public Personnes()
+        {
+
+        }
         public Personnes(string prenom, string nom, CodeMétiers métier)// Quand le constructeur est appellé il prend certains paramètres définis dans les propriètés 
         {
             CodePersonne = string.Format("{0}{1}", prenom[0], nom[0]); //on extrait les initiales du prénom et du nom pour en faire un "CodePersonne"
@@ -27,19 +31,19 @@ namespace JobOverview
         #endregion
 
         #region Méthodes publiques
-        //  public static Personnes TrouverNom(List<Personnes> data, string codePersonne)
-        //{
-        //    //var per = data.Where(p => p.CodePersonne == codePersonne);
+        public static Personnes TrouverNom(List<Personnes> data, string codePersonne)
+        {
+            //var per = data.Where(p => p.CodePersonne == codePersonne);
 
-        //    foreach (var p in data)
-        //    {
-        //        if (p.CodePersonne == codePersonne)
-        //            return (new Personnes(p.Prénom, p.Nom, p.Métier));
-        //    }
-        // return new Personnes();
-        #endregion
+            foreach (var p in data)
+            {
+                if (p.CodePersonne == codePersonne)
+                    return (new Personnes(p.Prénom, p.Nom, p.Métier));
+            }
+            return new Personnes();
+            #endregion
+        }
     }
-
 }
 
 
