@@ -14,7 +14,7 @@ namespace JobOverview
             a1.ChargeFichier();// appel de la méthode charge fichier et chargement les données dans la nouvelle liste
 
             var listannexe = new List<Annexes>();
-            Annexes.SaisieAnnexe(listannexe);
+           // Annexes.SaisieAnnexe(listannexe);
 
             var personnes = new List<Personnes>();// on instancie une nouvelle liste de personnes
             Personnes.RemplissagePersonne(personnes);
@@ -30,7 +30,7 @@ namespace JobOverview
 
             int choix1 = 1; 
             int choix2;
-            while (choix1 == 1 || choix1 == 2)
+            while (choix1 == 1 || choix1 == 2 || choix1 == 3)
             {
                 Console.WriteLine("1 - Saisir des activités annexes.");
                 Console.WriteLine("2 - Afficher des résultats.");

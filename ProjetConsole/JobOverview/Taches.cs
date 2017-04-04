@@ -70,11 +70,11 @@ namespace JobOverview
             string saisie1, saisie2, saisie3, saisie4;
             int saisieprim;
             DateTime saisietemps;
-                        
+            Console.Write("Bonjour! ");            
             do
             {
 
-                Console.WriteLine("Bonjour. Veuillez saisir une tâche annexe :");
+                Console.WriteLine("Veuillez saisir une tâche annexe :");
                 saisie1 = Console.ReadLine();
                 Console.WriteLine("Combien de temps avez-vous alloué à cette tâches?:");
                 saisie2 = Console.ReadLine();
@@ -93,7 +93,7 @@ namespace JobOverview
                 };
                 listannexe.Add(taches);
             }
-            while (saisie3 == "oui");
+            while (saisie4.CompareTo("oui")==0);
             
         }
         #endregion

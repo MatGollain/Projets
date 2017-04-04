@@ -8,9 +8,9 @@ namespace JobOverview
 {
     public static class Results
     {
-        public static int DuréeTotaleActivité(List<Production> data, CodeActivités act)//Calcul de la durée prévue totale par activité. On appelle en paramètre
+        public static int DuréeTotaleActivité(List<Production> data, CodeActivités act, string ver)//Calcul de la durée prévue totale par activité. On appelle en paramètre
         {
-            var preAct = data.Where(a => a.ActivitéTache == act).Sum(dtp => dtp.DuréeTravailPrévu);
+            var preAct = data.Where(a => a.ActivitéTache == act && a.Version == ver).Sum(dtr => dtr.DuréeTravailRéalisé);
             return preAct;
         }
 
@@ -48,10 +48,10 @@ namespace JobOverview
             saisiea = Console.ReadLine();
             Console.WriteLine("Pour quelle personne voulez-vous avoir une information? initiale");
             saisieb = Console.ReadLine();
-            Personnes p = Personnes.TrouverNom(personnes, saisiea);
+            Personnes p = Personnes.TrouverNom(personnes, saisieb);
             travReal = Results.DuréeTravailRéaliséPersonne(data, saisieb, saisiea);
             travRest = Results.DuréeTravailRestantPersonne(data, saisieb, saisiea);
-            Console.WriteLine("Sur la version {0}, {1} {2} a réalisé {3} jours de travail, et il lui reste {4} jours de planifiés.", saisiea, p.Nom, p.Prénom, travReal, travRest);
+            Console.WriteLine("Sur la version {0}, {1} {2} a réalisé {3} jours de travail, et il lui reste {4} jours de planifiés.", saisiea, p.Prénom, p.Nom, travReal, travRest);
         }
 
         public static void AfficherTravailActivité(List<Production> data, Activités activités)
@@ -63,7 +63,7 @@ namespace JobOverview
             Console.WriteLine("Pour quelle activité voulez-vous avoir une information? code d'activité");
             saisiec = Console.ReadLine();
             CodeActivités saisiecprim = (CodeActivités)Enum.Parse(typeof(CodeActivités), saisiec);
-            dureeAct = Results.DuréeTotaleActivité(data, saisiecprim);
+            dureeAct = Results.DuréeTotaleActivité(data, saisiecprim, saisiea);
             act = activités.TrouverActivité(saisiecprim);
             Console.WriteLine("La durée de travail réalisée pour l'activité {0} sur la version {1} est de {2}", act, saisiea, dureeAct);
         }

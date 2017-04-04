@@ -24,7 +24,7 @@ namespace JobOverview
         #region Méthodes Publiques
         public void ChargeFichier()
         {
-            string chemin = @"..\..\ProjetJobOverview.txt";
+            string chemin = @"..\..\Data.txt";
 
             int cpt = 0;
             using (StreamReader str = new StreamReader(chemin))//on lit la ligne
