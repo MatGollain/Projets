@@ -69,9 +69,9 @@ namespace JobOverview
 
             string saisie1, saisie2, saisie3, saisie4;
             int saisieprim;
-            DateTime saisietemps;
+            DateTime saisietemps;//on définit les variables necessaires à la suite de la méthode
             Console.Write("Bonjour! ");            
-            do
+            do// tant que on a une tâche à saisir on va refaire cette boucle mais on le fait au moins une fois
             {
 
                 Console.WriteLine("Veuillez saisir une tâche annexe :");
@@ -95,6 +95,14 @@ namespace JobOverview
             }
             while (saisie4.CompareTo("oui")==0);
             
+        }
+
+        public static void AffichageAnnexe (List<Annexes> listannexe)
+        {
+            foreach (var p in listannexe)
+            {
+                Console.Write("{0}/t {1}/t {2}/t {3}", p.NumTache, p.LibTache, p.DuréeTravailRéalisé, p.DateAnnexe);
+            }
         }
         #endregion
 

@@ -33,8 +33,7 @@ namespace JobOverview
         #region Méthodes publiques
         public static Personnes TrouverNom(List<Personnes> data, string codePersonne)
         {
-            //var per = data.Where(p => p.CodePersonne == codePersonne);
-
+           
             foreach (var p in data)
             {
                 if (p.CodePersonne == codePersonne)
