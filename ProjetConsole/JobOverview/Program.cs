@@ -11,10 +11,11 @@ namespace JobOverview
         static void Main(string[] args)
         {
             var a1 = new DAL();//on appelle le constructeur de la classe DAL donc on instancie une nouvelle liste
-            a1.ChargeFichier();// appel de la méthode charge fichier et chargement les données dans la nouvelle liste
+            a1.ChargeFichier();// appel de la méthode charge fichier et chargement des données dans la nouvelle liste
 
-            var listannexe = new List<Annexes>();
-           // Annexes.SaisieAnnexe(listannexe);
+            var listannexe = new List<Annexes>();//on instancie une nouvelle liste d'annexe
+            Annexes.SaisieAnnexe(listannexe);//on appelle la méthode statique SaisieAnnexe, on envoie à la méthode grâce à son paramétre la nouvelle liste d'annexe vide
+            Annexes.AffichageAnnexe(listannexe);
 
             var personnes = new List<Personnes>();// on instancie une nouvelle liste de personnes
             Personnes.RemplissagePersonne(personnes);
@@ -23,9 +24,7 @@ namespace JobOverview
             métiers.RemplissageMétier();
 
             var activités = new Activités();//on appelle le constructeur par défault (sans paramétre) de la classe Métiers donc on instancie une nouvelle activité
-                                            //Personnes p = new Personnes();
-                                            //p = Personnes.TrouverNom(personnes, codePersonne);
-                                            //Console.WriteLine("Nom : {0} Prénom : {1}", p.Prénom, p.Nom);
+                                          
             activités.RemplissageActivité();
 
             int choix1 = 1; 
@@ -36,7 +35,7 @@ namespace JobOverview
                 Console.WriteLine("2 - Afficher des résultats.");
                 Console.WriteLine("3 - Changer la durée restante d'une tâche.");
                 Console.WriteLine("4 - Quitter.");
-                choix1 = int.Parse(Console.ReadLine().Trim());
+                choix1 = int.Parse(Console.ReadLine());
                 switch (choix1)
                 {
                     case 1:
@@ -45,10 +44,10 @@ namespace JobOverview
                     case 2:
                         Console.WriteLine("1 - Concernant une activité.");
                         Console.WriteLine("2 - Concernant une personne.");
-                        Console.WriteLine("3 - Concernant le pourcentage d'avance.");
+                        Console.WriteLine("3 - Concernant le pourcentage d'avancement.");
                         Console.WriteLine("4 - Revenir au menu précédent.");
                         Console.WriteLine("5 - Quitter.");
-                        choix2 = int.Parse(Console.ReadLine().Trim());
+                        choix2 = int.Parse(Console.ReadLine());
                         switch (choix2)
                         {
                             case 1:
@@ -79,6 +78,7 @@ namespace JobOverview
 
                         break;
                 }
+
             }
             Console.ReadKey();
 

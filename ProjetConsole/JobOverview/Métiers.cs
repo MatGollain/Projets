@@ -41,7 +41,7 @@ namespace JobOverview
 
         #region Méthodes publiques     
         public void RemplissageMétier()//cette méthode prend comme paramètre le dictionnaire définit dans les propriétés 
-        {//on remplit un dictionnaire qui définit les "CodeMétier". On peut le faire car on a instancié ?????relation avec l'appel du constructeur
+        {//on remplit un dictionnaire qui définit les "CodeMétier". 
             Métier.Add(CodeMétiers.ANA, "Analyste");
             Métier.Add(CodeMétiers.CDP, "Chef de projet");
             Métier.Add(CodeMétiers.DEV, "Développeur");
