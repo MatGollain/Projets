@@ -13,7 +13,6 @@ namespace JobOverview
             var a1 = new DAL();
             a1.ChargeFichier();// appele  charger fichier et charge les données
 
-
             var personnes = new List<Personnes>();
             var métiers = new Métiers();
             var activités = new Activités();
@@ -32,7 +31,6 @@ namespace JobOverview
             Personnes p = new Personnes();         
             p = Personnes.TrouverNom(personnes, codePersonne);
             Console.WriteLine("Nom : {0} Prénom : {1}", p.Prénom, p.Nom);
-
 
             Console.ReadKey();
         }
