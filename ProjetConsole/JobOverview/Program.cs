@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace JobOverview
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             var a1 = new DAL();//on appelle le constructeur de la classe DAL donc on instancie une nouvelle liste
             a1.ChargeFichier();// appel de la méthode charge fichier et chargement les données dans la nouvelle liste
-
 
             var personnes = new List<Personnes>();// on instancie une nouvelle liste de personnes
 
@@ -32,11 +31,49 @@ namespace JobOverview
             var métiers = new Métiers();//on appelle le constructeur par défault (sans paramétre) de la classe Métiers donc on instancie un nouveau métier
             var activités = new Activités();//on appelle le constructeur par défault (sans paramétre) de la classe Métiers donc on instancie une nouvelle activité
             Personnes p = new Personnes();
-            p = Personnes.TrouverNom(personnes, codePersonne);
+            p = Personnes.TrouverNom(personnes, "GL");
             Console.WriteLine("Nom : {0} Prénom : {1}", p.Prénom, p.Nom);
 
+            int resu;
+            resu = Results.DuréeTotaleActivité(a1.Data,CodeActivités.ANF,"1.00");
 
             Console.ReadKey();
+
+            int choix1,choix2;
+
+
+            Console.WriteLine("1 - Saisir des activités annexes.");
+            Console.WriteLine("2 - Afficher des résultats.");
+            Console.WriteLine("3 - Quitter.");
+            choix1 = int.Parse(Console.ReadLine().Trim());
+            switch (choix1)
+            {
+                case 1:
+                    break;
+                case 2:
+                    Console.WriteLine("1 - Concernant une activité.");
+                    Console.WriteLine("2 - Concernant une personne.");
+                    Console.WriteLine("3 - Revenir au menu précédent.");
+                    Console.WriteLine("4 - Quitter.");
+                    choix2 = int.Parse(Console.ReadLine().Trim());
+                    switch (choix1)
+                    {
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        default:
+
+                            break;
+                    }
+                    break;
+                default:
+
+                    break;
+            }
+
         }
     }
 }

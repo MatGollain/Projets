@@ -11,13 +11,13 @@ namespace JobOverview
     class DAL
     {
         #region Propriétés
-        public List<Taches> Data { get; }
+        public List<Production> Data { get; }
         #endregion
 
         #region Constructeurs
         public DAL()
         {
-            Data = new List<Taches>();//Ce constructeur instancie une nouvelle liste
+            Data = new List<Production>();//Ce constructeur instancie une nouvelle liste
         }
         #endregion
 
