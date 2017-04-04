@@ -66,7 +66,16 @@ namespace JobOverview
 
             // activités.Activité(new Dictionary<CodeActivités, string> (CodeActivités.DBE, "Définition de besoins"));
         }
-        #endregion
+        public string TrouverActivité (CodeActivités ca)
+        {
+            foreach(var m in Activité)
+            {
+                if (m.Key == ca)
+                    return (m.Value);
+            }
+            return string.Empty;
+        }
+         #endregion
     }
 }
 

@@ -27,9 +27,9 @@ namespace JobOverview
             CodeActivités saisiecprim = (CodeActivités)Enum.Parse(typeof(CodeActivités), saisiec);
 
 
-            Console.WriteLine("Sur la version {0}, {1} a réalisé {2} jours de travail, et il lui reste {3} jours de planifiés.", saisiea, saisieb,,);
-            Console.WriteLine("Sur la version {0}, la durée de travail réalisée a dépassé de {1} la durée prévue, ce qui représente un pourcentage proche de {2}", saisiea,,);
-            Console.WriteLine("La durée de travail réalisée pour l'activité {0} sur la version {1} est de {2}", saisiec, saisiea,);
+           Console.WriteLine("Sur la version {0}, {1} a réalisé {2} jours de travail, et il lui reste {3} jours de planifiés.", saisiea, saisieb,,);
+           Console.WriteLine("Sur la version {0}, la durée de travail réalisée a dépassé de {1} la durée prévue, ce qui représente un pourcentage proche de {2}", saisiea,,);
+           Console.WriteLine("La durée de travail réalisée pour l'activité {0} sur la version {1} est de {2}", saisiec, saisiea,);
 
             var personnes = new List<Personnes>();// on instancie une nouvelle liste de personnes
 

@@ -8,7 +8,7 @@ using System.IO;
 namespace JobOverview
 {
 
-    class DAL
+    public class DAL
     {
         #region Propriétés
         public List<Production> Data { get; }
