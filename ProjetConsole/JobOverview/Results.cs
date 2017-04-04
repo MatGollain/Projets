@@ -9,6 +9,11 @@ namespace JobOverview
     class Results
     {
 
+
+        public void CalculerTravailRéalisé(List<Taches> p)
+        {
+
+        }
         // méthodes de calcules / affichage? 
         /*
         CalculerTempsTotal
@@ -22,12 +27,23 @@ namespace JobOverview
         CalculerTempsPersonneTotal
         */
 
-        public void AfficherRésultats(List<Taches> data)
+        public int DuréeTotaleActivité(List<Production> data, CodeActivités act)
         {
-            var res1 = data.Where(a => a.Activité).Sum(dtp => dtp.DuréeTravailPrévu);//durée totale prévue d'une activité
-            var res2 = data.Where(p => p.Personnes).Sum(dtr => dtr.DuréeTravailRéalisé);//durée de travail réalisé d'une personne
-            var res3 = data.Where(p => p.Personnes).Sum(dtres => dtres.DuréeTravailRestant);//durée de travail restant d'une personne
-
+            var preAct = data.Where(a => a.ActivitéTache == act).Sum(dtp => dtp.DuréeTravailPrévu);
+            return preAct;
         }
-    }
+
+        public int DuréeTravailRéaliséPersonne(List<Production> data, string codper, string ver)
+        {
+            return data.Where(p => p.CodePersonne == codper && p.Version == ver).Sum(dtr => dtr.DuréeTravailRéalisé);
+        }
+
+        public int DuréeTravailRestantPersonne(List<Production> data, string codper, string ver)
+        {
+            return data.Where(p => p.CodePersonne == codper && p.Version == ver).Sum(dtres => dtres.DuréeTravailRestant);
+        }
+
+
+
+}
 }

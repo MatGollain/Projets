@@ -9,30 +9,42 @@ namespace JobOverview
 
     class Personnes
     {
-        Dictionary<Métiers, Activités> _métier;
 
         #region Propriété
-        public string CodePersonne { get; set; }
-        public string Nom { get; set; }
-        public string Prénom { get; set; }
-        public Métiers Métier { get; private set; }
+        public string CodePersonne { get; }
+        public string Nom { get; }
+        public string Prénom { get; }
+        public CodeMétiers Métier { get; }
         #endregion
+        #region Constructeur
 
-        #region Méthodes publiques
-
-        public void RemplissagePersonne(List<Personnes> personnes)
+        public Personnes()
         {
 
-            //personnes.Add(new Personnes("Genevièvre", "Leclerq", Métiers.ANA));
-            //personnes.Add(new Personnes("Angèle", "Ferrand", Métiers.ANA));
-            //personnes.Add(new Personnes("Balthazar", "Normand", Métiers.CDP));
-            //personnes.Add(new Personnes("Raymond", "Fisher", Métiers.DEV));
-            //personnes.Add(new Personnes("Lucien", "Butler", Métiers.DEV));
-            //personnes.Add(new Personnes("Roseline", "Beaumont", Métiers.DEV));
-            //personnes.Add(new Personnes("Marguerite", "Weber", Métiers.DES));
-            //personnes.Add(new Personnes("Hilaire", "Klein", Métiers.TES));
-            //personnes.Add(new Personnes("Nino", "Palmer", Métiers.TES));
+        }
 
+
+        public Personnes(string prenom, string nom, CodeMétiers métier)
+        {
+            CodePersonne = string.Format("{0}{1}", prenom[0], nom[0]);
+            Nom = nom;
+            Prénom = prenom;
+            Métier = métier;
+        }
+
+        #endregion
+        #region Méthodes publiques
+
+        public static Personnes TrouverNom(List<Personnes> data, string codePersonne)
+        {
+            //var per = data.Where(p => p.CodePersonne == codePersonne);
+
+            foreach (var p in data)
+            {
+                if (p.CodePersonne == codePersonne)
+                    return (new Personnes(p.Prénom,p.Nom,p.Métier));
+            }
+            return new Personnes();
 
         }
         #endregion
