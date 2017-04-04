@@ -8,8 +8,6 @@ namespace JobOverview
 {
     public static class Results
     {
-
-
         public static int DuréeTotaleActivité(List<Production> data, CodeActivités act)//Calcul de la durée prévue totale par activité. On appelle en paramètre
         {
             var preAct = data.Where(a => a.ActivitéTache == act).Sum(dtp => dtp.DuréeTravailPrévu);
@@ -25,7 +23,6 @@ namespace JobOverview
         {
             return data.Where(p => p.CodePersonne == codper && p.Version == ver).Sum(dtp => dtp.DuréeTravailPrévu);
         }
-
         public static int DuréeTravailRestantPersonne(List<Production> data, string codper, string ver)
         {
             return data.Where(p => p.CodePersonne == codper && p.Version == ver).Sum(dtres => dtres.DuréeTravailRestant);

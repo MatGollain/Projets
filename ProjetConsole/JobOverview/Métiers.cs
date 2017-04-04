@@ -32,13 +32,13 @@ namespace JobOverview
         #endregion
 
         #region Méthodes publiques     
-        public void RemplissageMétier()//cette méthode prend comme paramètre le dictionnaire définit dans les propriétés 
+        public void RemplissageMétier(Dictionary<CodeMétiers, string> métiers)//cette méthode prend comme paramètre le dictionnaire définit dans les propriétés 
         {//on remplit un dictionnaire qui définit les "CodeMétier". On peut le faire car on a instancié ?????relation avec l'appel du constructeur
-            Métier.Add(CodeMétiers.ANA, "Analyste");
-            Métier.Add(CodeMétiers.CDP, "Chef de projet");
-            Métier.Add(CodeMétiers.DEV, "Développeur");
-            Métier.Add(CodeMétiers.DES, "Designer");
-            Métier.Add(CodeMétiers.TES, "Testeur");
+            métiers.Add(CodeMétiers.ANA, "Analyste");
+            métiers.Add(CodeMétiers.CDP, "Chef de projet");
+            métiers.Add(CodeMétiers.DEV, "Développeur");
+            métiers.Add(CodeMétiers.DES, "Designer");
+            métiers.Add(CodeMétiers.TES, "Testeur");
         }
         #endregion
     }
@@ -50,25 +50,32 @@ namespace JobOverview
         #endregion
 
         #region Méthodes Publiques
-        public void RemplissageActivité()//cette méthode prend comme paramètre le dictionnaire définit dans les propriétés
+        public void RemplissageActivité(Dictionary<CodeActivités, string> activités)//cette méthode prend comme paramètre le dictionnaire définit dans les propriétés
         {//on remplit un dictionnaire qui définit les "CodeActivités". On peut le faire car on a instancié ?????relation avec l'appel du constructeur
-            Activité.Add(CodeActivités.DBE, "Définition de besoins");
-            Activité.Add(CodeActivités.ARF, "Architecture fonctionnelle");
-            Activité.Add(CodeActivités.ANF, "Analyse fonctionnelle");
-            Activité.Add(CodeActivités.DES, "Design");
-            Activité.Add(CodeActivités.INF, "Infographie");
-            Activité.Add(CodeActivités.ART, "Architecture technique");
-            Activité.Add(CodeActivités.ANT, "Analyse technique");
-            Activité.Add(CodeActivités.DEV, "Développement");
-            Activité.Add(CodeActivités.RPT, "Rédaction de plan de test");
-            Activité.Add(CodeActivités.TES, "Test");
-            Activité.Add(CodeActivités.GDP, "Gestion de projet");
+            activités.Add(CodeActivités.DBE, "Définition de besoins");
+            activités.Add(CodeActivités.ARF, "Architecture fonctionnelle");
+            activités.Add(CodeActivités.ANF, "Analyse fonctionnelle");
+            activités.Add(CodeActivités.DES, "Design");
+            activités.Add(CodeActivités.INF, "Infographie");
+            activités.Add(CodeActivités.ART, "Architecture technique");
+            activités.Add(CodeActivités.ANT, "Analyse technique");
+            activités.Add(CodeActivités.DEV, "Développement");
+            activités.Add(CodeActivités.RPT, "Rédaction de plan de test");
+            activités.Add(CodeActivités.TES, "Test");
+            activités.Add(CodeActivités.GDP, "Gestion de projet");
 
             // activités.Activité(new Dictionary<CodeActivités, string> (CodeActivités.DBE, "Définition de besoins"));
         }
-
-
-        #endregion
+        public string TrouverActivité (CodeActivités ca)
+        {
+            foreach(var m in Activité)
+            {
+                if (m.Key == ca)
+                    return (m.Value);
+            }
+            return string.Empty;
+        }
+         #endregion
     }
 }
 
