@@ -27,18 +27,19 @@ namespace JobOverview
         #endregion
 
         #region Méthodes publiques
-        // public static Personnes TrouverNom(List<Personnes> data, string codePersonne)
-        //   {
-        //       //var per = data.Where(p => p.CodePersonne == codePersonne);
+        //  public static Personnes TrouverNom(List<Personnes> data, string codePersonne)
+        //{
+        //    //var per = data.Where(p => p.CodePersonne == codePersonne);
 
-        //       foreach (var p in data)
-        //       {
-        //           if (p.CodePersonne == codePersonne)
-        //               return (new Personnes(p.Prénom, p.Nom, p.Métier));
-        //       }
-        //       return new Personnes();
+        //    foreach (var p in data)
+        //    {
+        //        if (p.CodePersonne == codePersonne)
+        //            return (new Personnes(p.Prénom, p.Nom, p.Métier));
+        //    }
+        // return new Personnes();
         #endregion
     }
 
 }
+
 

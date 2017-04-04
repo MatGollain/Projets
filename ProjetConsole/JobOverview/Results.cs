@@ -40,7 +40,10 @@ namespace JobOverview
         {
             return data.Where(p => p.CodePersonne == codper && p.Version == ver).Sum(dtres => dtres.DuréeTravailRestant);
         }
-
+        public int DuréeTravailAnnexe(List<Annexes>data, int mois, string nomtache)
+        {
+            return data.Where(p => p.DateAnnexe.Month == mois && p.LibTache==nomtache).Sum(dtr => dtr.DuréeTravailRéalisé);
+        }
 
 
     }
