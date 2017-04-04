@@ -25,6 +25,28 @@ namespace JobOverview
         public int DuréeTravailRestant { get; set; }
         public string Version { get; set; }
         #endregion
+
+        #region Méthode publique
+
+        public static bool ChangerDuréeTache(List<Production> data)
+        {
+            int code, duree;
+            Console.WriteLine("Quel tâche voulez-vous changer? identifiant :");
+            code = int.Parse(Console.ReadLine());
+            Console.WriteLine("Nouvelle valeur de la durée :");
+            duree = int.Parse(Console.ReadLine());
+
+            foreach (var t in data)
+            {
+                if (t.NumTache == code)
+                {
+                    t.DuréeTravailRestant = duree;
+                    return true;
+                }
+            }
+            return false;
+        }
+        #endregion
     }
     public class Annexes : Taches// Tâches est l'ancêtre de annexe
     {
@@ -48,11 +70,11 @@ namespace JobOverview
             string saisie1, saisie2, saisie3, saisie4;
             int saisieprim;
             DateTime saisietemps;
-                        
+            Console.Write("Bonjour! ");            
             do
             {
 
-                Console.WriteLine("Bonjour. Veuillez saisir une tâche annexe :");
+                Console.WriteLine("Veuillez saisir une tâche annexe :");
                 saisie1 = Console.ReadLine();
                 Console.WriteLine("Combien de temps avez-vous alloué à cette tâches?:");
                 saisie2 = Console.ReadLine();
@@ -71,7 +93,7 @@ namespace JobOverview
                 };
                 listannexe.Add(taches);
             }
-            while (saisie3 == "oui");
+            while (saisie4.CompareTo("oui")==0);
             
         }
         #endregion
