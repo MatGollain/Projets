@@ -43,5 +43,52 @@ namespace JobOverview
             return data.Where(p => p.Version == ver).Sum(dtr => dtr.DuréeTravailRéalisé);
         }
 
+        public static void AfficherTravailPersonne(List<Production> data, List<Personnes> personnes)
+        {
+            string saisiea, saisieb;
+            int travReal, travRest;
+            Console.WriteLine("Quelle est la version de logiciel sur laquelle vous voulez avoir une information, 1.00 ou 2.00?");
+            saisiea = Console.ReadLine();
+            Console.WriteLine("Pour quelle personne voulez-vous avoir une information? initiale");
+            saisieb = Console.ReadLine();
+            Personnes p = Personnes.TrouverNom(personnes, saisiea);
+            travReal = Results.DuréeTravailRéaliséPersonne(data, saisieb, saisiea);
+            travRest = Results.DuréeTravailRestantPersonne(data, saisieb, saisiea);
+            Console.WriteLine("Sur la version {0}, {1} {2} a réalisé {3} jours de travail, et il lui reste {4} jours de planifiés.", saisiea, p.Nom, p.Prénom, travReal, travRest);
+        }
+
+        public static void AfficherTravailActivité(List<Production> data, Activités activités)
+        {
+            string saisiea, saisiec, act;
+            int dureeAct;
+            Console.WriteLine("Quelle est la version de logiciel sur laquelle vous voulez avoir une information, 1.00 ou 2.00?");
+            saisiea = Console.ReadLine();
+            Console.WriteLine("Pour quelle activité voulez-vous avoir une information? code d'activité");
+            saisiec = Console.ReadLine();
+            CodeActivités saisiecprim = (CodeActivités)Enum.Parse(typeof(CodeActivités), saisiec);
+            dureeAct = Results.DuréeTotaleActivité(data, saisiecprim);
+            act = activités.TrouverActivité(saisiecprim);
+            Console.WriteLine("La durée de travail réalisée pour l'activité {0} sur la version {1} est de {2}", act, saisiea, dureeAct);
+        }
+
+        public static void AfficherPourcentage(List<Production> data)
+        {
+            string saisiea;
+            int travReal, travPrev, diff, pourcen;
+            Console.WriteLine("Quelle est la version de logiciel sur laquelle vous voulez avoir une information, 1.00 ou 2.00?");
+            saisiea = Console.ReadLine();
+            travReal = Results.DuréeTravailRéaliséVersion(data, saisiea);
+            travPrev = Results.DuréeTravailPrévuVersion(data, saisiea);
+            diff = travPrev - travReal;
+            pourcen = (diff / travPrev) * 100;
+            if (diff < 0)
+                Console.WriteLine("Sur la version {0}, la durée de travail réalisée a dépassé de {1} la durée prévue, ce qui représente un pourcentage de retard proche de {2}", saisiea, diff * -1, pourcen);
+            else if (diff > 0)
+                Console.WriteLine("Sur la version {0}, la durée de travail réalisée est inférieur de {1} la durée prévue, ce qui représente un pourcentage d'avance proche de {2}", saisiea, diff * -1, pourcen);
+            else
+                Console.WriteLine("Sur la version {0}, la durée de travail réalisée est égale à la durée prévue", saisiea);
+
+        }
+
     }
 }

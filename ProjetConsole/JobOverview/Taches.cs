@@ -25,6 +25,28 @@ namespace JobOverview
         public int DuréeTravailRestant { get; set; }
         public string Version { get; set; }
         #endregion
+
+        #region Méthode publique
+
+        public static bool ChangerDuréeTache(List<Production> data)
+        {
+            int code, duree;
+            Console.WriteLine("Quel tâche voulez-vous changer? identifiant :");
+            code = int.Parse(Console.ReadLine());
+            Console.WriteLine("Nouvelle valeur de la durée :");
+            duree = int.Parse(Console.ReadLine());
+
+            foreach (var t in data)
+            {
+                if (t.NumTache == code)
+                {
+                    t.DuréeTravailRestant = duree;
+                    return true;
+                }
+            }
+            return false;
+        }
+        #endregion
     }
     public class Annexes : Taches// Tâches est l'ancêtre de annexe
     {
