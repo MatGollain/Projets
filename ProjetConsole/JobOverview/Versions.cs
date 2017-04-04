@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JobOverview
 {
-    class Versions
+   public class Versions//classe POCO
     {
         public double Numero { get; set; }
         public int Millésime { get; set; }

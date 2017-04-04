@@ -8,8 +8,6 @@ namespace JobOverview
 {
     class Results
     {
-
-
         public void CalculerTravailRéalisé(List<Taches> p)
         {
 
@@ -27,7 +25,7 @@ namespace JobOverview
         CalculerTempsPersonneTotal
         */
 
-        public int DuréeTotaleActivité(List<Production> data, CodeActivités act)
+        public int DuréeTotaleActivité(List<Production> data, CodeActivités act)//Calcul de la durée prévue totale par activité. On appelle en paramètre
         {
             var preAct = data.Where(a => a.ActivitéTache == act).Sum(dtp => dtp.DuréeTravailPrévu);
             return preAct;
@@ -45,5 +43,5 @@ namespace JobOverview
 
 
 
-}
+    }
 }

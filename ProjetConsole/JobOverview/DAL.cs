@@ -17,7 +17,7 @@ namespace JobOverview
         #region Constructeurs
         public DAL()
         {
-            Data = new List<Taches>();
+            Data = new List<Taches>();//Ce constructeur instancie une nouvelle liste
         }
         #endregion
 
@@ -27,23 +27,23 @@ namespace JobOverview
             string chemin = @"..\..\ProjetJobOverview.txt";
 
             int cpt = 0;
-            using (StreamReader str = new StreamReader(chemin))
+            using (StreamReader str = new StreamReader(chemin))//on lit la ligne
             {
-                string ligne;
+                string ligne; //on crée une variable ligne de type string
 
-                while ((ligne = str.ReadLine()) != null)
+                while ((ligne = str.ReadLine()) != null)//tant qu'il reste des lignes à lire
                 {
-                    cpt++;
-                    if (cpt == 1) continue; // On ne charge pas les entêtes
+                    cpt++;//on incrémente le compteur
+                    if (cpt == 1) continue; // Si mon compteur est égale à 1, on ne charge pas les entêtes et on repart au while
 
-                    var tab = ligne.Split('\t');
+                    var tab = ligne.Split('\t');// on fait une tabulation après avoir charger chaque ligne
 
-                    var taches = new Production
+                    var taches = new Production//on affecte chaque colonne à une valeur et on convertit dans le type qui convient si besoin
                     {
                         NumTache = int.Parse(tab[0]),
                         Version = tab[1],
-                        CodePersonne = tab[2],                      
-                        ActivitéTache = (CodeActivités)Enum.Parse(typeof(CodeActivités), tab[3]),  
+                        CodePersonne = tab[2],
+                        ActivitéTache = (CodeActivités)Enum.Parse(typeof(CodeActivités), tab[3]),
                         LibTache = tab[4],
                         DateDébutTravail = DateTime.Parse(tab[5]),
                         DuréeTravailPrévu = int.Parse(tab[6]),
@@ -52,11 +52,11 @@ namespace JobOverview
                     };
 
                     Data.Add(taches);// Ajout des données à la liste
-                                        
+
                 }
             }
         }
         #endregion
     }
-    
+
 }
